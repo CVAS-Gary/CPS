@@ -79,6 +79,7 @@ select id, Name from Customer 轉換成 C# LINQ
 ```
 ## C# to Python
 ```csharp
+幫我轉成Python檔案
 using System;
 
 class Program

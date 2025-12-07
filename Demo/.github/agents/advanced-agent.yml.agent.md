@@ -1,4 +1,4 @@
-name: advanced-agent
+name: advanced-agent.
 description: "A custom agent for API, DevOps, and compliance demos"
 
 instructions: |

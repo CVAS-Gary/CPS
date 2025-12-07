@@ -106,7 +106,5 @@ npm test
 ## 🌐 聯絡方式
 - 作者：Gary Tsai
 - Email：gary.tsai@cloudriches.com  
-- GitHub：[USERNAME](https://github.com/USERNAME)  
+- GitHub：[CVAS-Gary](https://github.com/CVAS-Gary)  
 ```
-
-要不要我幫你再做一個 **進階版 README**，加上 **專案流程圖** 或 **功能比較表**，讓它更適合用在團隊或企業級專案？

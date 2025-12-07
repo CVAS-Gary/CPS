@@ -4,11 +4,11 @@ from fastapi import FastAPI, Request, HTTPException
 from pydantic import BaseModel
 import re
 
-APP = FastAPI()
+app = FastAPI()
 
-class BMI_REQUEST(BaseModel):
-    HEIGHT: float
-    WEIGHT: float
+class BmiRequest(BaseModel):
+    height: float
+    weight: float
 
 # API 命名規範：路徑必須為小寫、使用破折號分隔單字
 API_PATH = '/bmi-calculate'
@@ -17,12 +17,12 @@ API_PATH = '/bmi-calculate'
 if not re.match(r'^/[a-z0-9\-]+$', API_PATH):
     raise Exception('API 路徑命名不符合規範，請使用小寫及破折號分隔')
 
-@APP.post(API_PATH)
-async def CALCULATE_BMI(BODY: BMI_REQUEST):
+@app.post(API_PATH)
+async def calculate_bmi(body: BmiRequest):
     """計算 BMI 的 FastAPI Endpoint"""
-    HEIGHT = BODY.HEIGHT
-    WEIGHT = BODY.WEIGHT
-    if HEIGHT <= 0 or WEIGHT <= 0:
-        raise HTTPException(status_code=400, detail='HEIGHT 和 WEIGHT 必須大於 0')
-    BMI = WEIGHT / ((HEIGHT / 100) ** 2)
-    return { 'BMI': round(BMI, 2) }
+    height_cm = body.height
+    weight_kg = body.weight
+    if height_cm <= 0 or weight_kg <= 0:
+        raise HTTPException(status_code=400, detail='height 和 weight 必須大於 0')
+    bmi = weight_kg / ((height_cm / 100) ** 2)
+    return {'bmi': round(bmi, 2)}

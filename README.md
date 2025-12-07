@@ -1,3 +1,4 @@
+```markdown
 # 🚀 專案名稱 (Project Name)
 
 [![License](https://img.shields.io/github/license/USERNAME/REPO.svg)](LICENSE)
@@ -25,7 +26,79 @@
 ```bash
 git clone https://github.com/USERNAME/REPO.git
 cd REPO
+```
+
+### 使用 npm / pip (依技術棧調整)
+```bash
+npm install project-name
+```
+或
+```bash
+pip install project-name
+```
 
 ---
 
-我把這份 README 設計成 **模組化範本**，方便快速替換專案名稱、安裝方式與程式語言範例。  
+## 🛠 使用範例
+```python
+from project_name import Module
+
+tool = Module()
+tool.run("example input")
+```
+
+```javascript
+import { Tool } from "project-name";
+
+const tool = new Tool();
+tool.run("example input");
+```
+
+---
+
+## 📂 專案結構
+```plaintext
+├── src/              # 核心程式碼
+├── docs/             # 文件與說明
+├── tests/            # 測試案例
+├── examples/         # 範例程式
+└── README.md         # 專案介紹
+```
+
+---
+
+## 🧪 測試
+```bash
+pytest tests/
+```
+或
+```bash
+npm test
+```
+
+---
+
+## 🤝 貢獻指南
+歡迎提交 Pull Request 或建立 Issue！  
+請遵循以下流程：
+1. Fork 專案
+2. 建立新分支 (`git checkout -b feature/your-feature`)
+3. 提交修改 (`git commit -m 'Add new feature'`)
+4. 推送分支 (`git push origin feature/your-feature`)
+5. 建立 Pull Request
+
+---
+
+## 📜 授權
+此專案採用 [MIT License](LICENSE)。  
+您可以自由使用、修改與分發，但需保留版權聲明。
+
+---
+
+## 🌐 聯絡方式
+- 作者：Gary Tsai
+- Email：gary.tsai@cloudriches.com  
+- GitHub：[USERNAME](https://github.com/USERNAME)  
+```
+
+要不要我幫你再做一個 **進階版 README**，加上 **專案流程圖** 或 **功能比較表**，讓它更適合用在團隊或企業級專案？

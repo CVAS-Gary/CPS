@@ -23,6 +23,6 @@ async def calculate_bmi(body: BmiRequest):
     height_cm = body.height
     weight_kg = body.weight
     if height_cm <= 0 or weight_kg <= 0:
-        raise HTTPException(status_code=400, detail='height 和 weight 必須大於 0')
+        raise HTTPException(status_code=400, detail='身高和體重必須大於 0')
     bmi = weight_kg / ((height_cm / 100) ** 2)
     return {'bmi': round(bmi, 2)}

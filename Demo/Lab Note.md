@@ -69,3 +69,20 @@ SPARK是一種類似輸入提示詞他就會幫你Create一個webapp的功能
 ### QA
 Business & Enterprise由組織管理者去決定的
 組織管理者也可以把預算額度關掉，可以決定把Premiume request關掉 (統一)
+
+### GitHub Copilot custome agent編寫範例
+Basuc agent vs Advanced agent vs Demo agent
+- 「幫我寫一個 Python Flask REST API 範例」
+- 「我們的 CI/CD pipeline YAML 怎麼寫？」
+
+
+
+### Advanced agent會多一些安全規範的檢查
+- tools：除了程式碼與文件，還加入 web 與 api，可呼叫外部 API (例如安全檢查服務)。
+- knowledge：掛載多個文件，涵蓋 API、DevOps pipeline、公司安全規範。
+- policies：定義合規性檢查，讓 Agent 在生成 IaC 或 API 範例時自動提醒安全規範。
+
+API sample
+- 提問：「建立一個 FastAPI endpoint，並檢查是否符合 API 命名規範」
+- Agent → 生成程式碼 + 自動檢查規範
+

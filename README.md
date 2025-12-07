@@ -26,6 +26,15 @@
 ```bash
 git clone https://github.com/USERNAME/REPO.git
 cd REPO
+
+---
+
+## 📦 安裝方式
+
+### 使用 Git Clone
+```bash
+git clone https://github.com/USERNAME/REPO.git
+cd REPO
 ```
 
 ### 使用 npm / pip (依技術棧調整)

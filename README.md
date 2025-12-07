@@ -1,4 +1,3 @@
-```markdown
 # 🚀 專案名稱 (Project Name)
 
 [![License](https://img.shields.io/github/license/USERNAME/REPO.svg)](LICENSE)

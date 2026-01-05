@@ -94,7 +94,7 @@ npm test
 3. 提交修改 (`git commit -m 'Add new feature'`)
 4. 推送分支 (`git push origin feature/your-feature`)
 5. 建立 Pull Request
-6. 其他詳情請參考[contributing.md]
+6. 其他詳情請參考[CONTRIBUTING.md](CONTRIBUTING.md)
 
 ---
 

@@ -18,7 +18,7 @@
 品質要求：
 - 若輸入含非預期型別，拋出 ValueError("Invalid input")
 - 通過 pytest 測試（我已提供測試檔）
-- 通過 flake8（PEP8）與 black 格式化
+- 通過 flake8（PEP8）與 black 格式化。
 交付物：
 - 函式實作 + 範例用法（若需要） 
 """

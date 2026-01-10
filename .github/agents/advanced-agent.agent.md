@@ -1,4 +1,4 @@
-name: cosmosdb-best-practices
+name: advanced-agent
 description: Azure Cosmos DB 資料建模、SDK、開發與應用場景最佳實踐指引
 
 instructions: |

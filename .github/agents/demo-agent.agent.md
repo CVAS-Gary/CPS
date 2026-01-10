@@ -1,5 +1,4 @@
----
-name: test-driven-agent
+name: demo-agent
 description: A custom agent for GitHub Copilot CLI with test-first and iterative development.
 
 instructions: |
@@ -43,4 +42,3 @@ policies:
       - Avoid destructive commands unless explicitly requested.
       - Include inline comments for clarity.
     enforce: true
----

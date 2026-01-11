@@ -20,6 +20,7 @@
 - 使用明確的輸入驗證（僅允許 int）
 - 對 None/空值顯式處理
 - 保持循環複雜度低（不做過度巢狀）
+- cyclomatic complexity < 5
 - 文件字串（docstring）完整描述例外情況
 
 """
@@ -51,7 +52,8 @@ pytest -q
 此流程可協助專案快速套用標準化的 CPS 樣板結構，確保專案初始內容一致，並方便後續協作與管理。
 
 ### 建立新專案參考
-請幫我參考init-template.yml在demo資料夾下建立新專案
+請幫我依照init-template.yml完整執行在demo資料夾下建立新專案CPS，並將template repo中的範例檔案複製到我的新專案。
+請幫我參照CPS專案自動複製".github\所有資料夾和檔案"、"PromptGallery\所有資料夾和檔案"、"CONTRIBUTING.md"、"README.md"、"requirements.txt"到demo資料夾下建立的新專案CPS。
 
 設定參考instructionsFilesLocations:
 @id:chat.instructionsFilesLocations 

@@ -1,4 +1,6 @@
 flask>=2.0.0
 # 開發與測試常用
 requests
+flake8
+black
 pytest>=7.0.0

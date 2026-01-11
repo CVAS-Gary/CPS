@@ -1,3 +1,7 @@
+### CLI增加Microsoft Learn MCP Server
+/mcp add https://learn.mcp.microsoft.com/
+已配置的 MCP 服务器信息保存在 mcp-config.json，默认位置是 ~/.copilot（可通过设置 XDG_CONFIG_HOME 改变位置）。
+
 ### 三輪迭代
 """
 第一輪迭代要求：
@@ -19,3 +23,15 @@
 - 文件字串（docstring）完整描述例外情況
 
 """
+
+### 建立測試環境
+python -m venv .venv
+
+.venv\Scripts\Activate.ps1
+
+pip install --upgrade pip
+pip install pytest black flake8
+
+black --check .
+flake8 .
+pytest -q

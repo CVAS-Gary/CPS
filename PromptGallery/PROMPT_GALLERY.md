@@ -60,9 +60,4 @@
 
 ### 5. 撰寫新專案部署
 # 1. 複製指定檔案與資料夾
-Copy-Item -Path "CPS-tmp\.github\pull_request_template.md" -Destination ".github\pull_request_template.md" -Force
-Copy-Item -Path "CPS-tmp\PromptGallery" -Destination "." -Recurse -Force
-Copy-Item -Path "CPS-tmp\CONTRIBUTING.md" -Destination "." -Force
-
-# 3. 刪除暫存資料夾
-Remove-Item -Recurse -Force "CPS-tmp"
+請幫我參照CPS專案自動複製".github\所有資料夾和檔案"、"PromptGallery\所有資料夾和檔案"、"CONTRIBUTING.md"、"README.md"、"requirements.txt"到demo資料夾下建立的新專案CPS。

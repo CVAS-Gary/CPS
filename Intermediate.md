@@ -2,6 +2,13 @@
 /mcp add https://learn.mcp.microsoft.com/
 已配置的 MCP 服务器信息保存在 mcp-config.json，默认位置是 ~/.copilot（可通过设置 XDG_CONFIG_HOME 改变位置）。
 
+### GitHub Copilot Command
+1. @workspace  + /explain  
+2. @terminal +  /explain
+3. @workspace + /explain + #file:path/to/file.py
+4. @workspace + /fix + #file:path/to/file.py
+5. @workspace + #file:path/to/file.py + /explain
+
 ### 三輪迭代
 """
 第一輪迭代要求：

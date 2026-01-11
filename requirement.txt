@@ -1,0 +1,4 @@
+flask>=2.0.0
+# 開發與測試常用
+requests
+pytest>=7.0.0

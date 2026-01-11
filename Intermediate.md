@@ -74,3 +74,10 @@ pytest -q
     例外：
         若輸入格式錯誤，回傳 400 並附錯誤訊息。
     """
+
+### Code-instructions
+GitHub Actions / YAML
+跨多個檔案
+refactor（怕改壞）
+公司有 coding rule
+你想「控制修改範圍」

@@ -31,6 +31,23 @@
 - 文件字串（docstring）完整描述例外情況
 
 """
+### 進階Prompt寫作技巧
+任務+限制+驗收標準
+"""
+# 請撰寫一個 normalizeQuery(input: string): string 函式
+# 限制：必須是純函式、O(n)、處理 Unicode 空白、保留語言區分（例如土耳其 i）
+# 驗收：提供 pytest 測試，涵蓋空字串、多重空白、特殊字元
+"""
+情境分層
+# 請擴充 UserService，新增 getActiveUsersByTier(tier: string)
+# 參考：src/services/UserService.ts 與 docs/style-guide.md
+# 限制：使用既有 Cache、符合 Telemetry 命名規範、避免 N+1 Query
+# 驗收：Lint 通過、提供單元測試
+"""
+批判與迭代
+# 請檢查 Copilot 產生的程式碼是否符合 docs/copilot-quality-checklist.md
+# 列出缺失並修正，僅顯示修改部分
+"""
 
 ### 建立測試環境
 python -m venv .venv

@@ -14,7 +14,7 @@
 設計約束：
 - 不修改外部狀態（pure function）
 - 加入完整 docstring（參數、回傳、例外）
-- 使用 typing 註記型別
+- 使用 typing 註記型別。
 品質要求：
 - 若輸入含非預期型別，拋出 ValueError("Invalid input")
 - 通過 pytest 測試（我已提供測試檔）

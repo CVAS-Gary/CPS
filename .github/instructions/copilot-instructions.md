@@ -13,3 +13,13 @@
 - **變數命名規則**：所有變數請使用全大寫，並以底線分隔單字，例如：`MY_VARIABLE_NAME`
 
 ## 4. 虛擬環境啟用指令
+- **Windows (PowerShell)**：`.venv\Scripts\Activate.ps1`
+- **macOS/Linux**：`source .venv/bin/activate`
+
+## 5. 測試框架
+- **使用 pytest**：請使用 `pytest` 作為主要測試框架
+- **測試檔案命名**：測試檔案請以 `test_` 開頭，例如：`test_my_module.py`
+
+## 6. 程式碼風格
+- **格式化工具**：請使用 `black` 進行程式碼格式化
+- **靜態檢查工具**：請使用 `flake8` 進行靜態程式碼檢查

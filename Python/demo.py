@@ -1,23 +1,18 @@
-from __future__ import annotations
+import unicodedata
+import re
 
-from typing import List
-
-
-def deduplicate_and_sort(input_list: List[int]) -> List[int]:
+def normalizeQuery(input: str) -> str:
     """
-    接收一個整數列表，回傳排序後去重的整數列表。
-
-    參數:
-        input_list (List[int]): 要處理的整數列表。
-
-    回傳:
-        List[int]: 去重並由小到大排序後的整數列表。
-
-    例外:
-        ValueError("Invalid input"): 當 input_list 不是 list 或包含非整數元素時拋出。
+    將輸入字串進行標準化：
+    - 移除前後的所有 Unicode 空白字元
+    - 將所有連續空白（Unicode 空白）合併為一個半形空白
+    - 保留語言區分（不做大小寫轉換、不做 Unicode 正規化）
+    - O(n) 時間複雜度
     """
-    if not isinstance(input_list, list):
-        raise ValueError("Invalid input")
-    if not all(isinstance(x, int) for x in input_list):
-        raise ValueError("Invalid input")
-    return sorted(set(input_list))
+    # 使用正則表達式處理所有 Unicode 空白
+    # \s 包含所有 Unicode 空白
+    # 先去除前後空白
+    trimmed = re.sub(r'^\s+|\s+$', '', input)
+    # 再將中間所有連續空白合併為一個半形空白
+    normalized = re.sub(r'\s+', ' ', trimmed)
+    return normalized

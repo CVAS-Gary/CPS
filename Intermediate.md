@@ -1,6 +1,13 @@
 ### CLI增加Microsoft Learn MCP Server
-/mcp add https://learn.mcp.microsoft.com/
+/mcp add https://learn.microsoft.com/api/mcp
 已配置的 MCP 服务器信息保存在 mcp-config.json，默认位置是 ~/.copilot（可通过设置 XDG_CONFIG_HOME 改变位置）。
+
+### GitHub Copilot Command
+1. @workspace  + /explain  
+2. @terminal +  /explain
+3. @workspace + /explain + #file:path/to/file.py
+4. @workspace + /fix + #file:path/to/file.py
+5. @workspace + #file:path/to/file.py + /explain
 
 ### 三輪迭代
 """
@@ -20,8 +27,26 @@
 - 使用明確的輸入驗證（僅允許 int）
 - 對 None/空值顯式處理
 - 保持循環複雜度低（不做過度巢狀）
+- cyclomatic complexity < 5
 - 文件字串（docstring）完整描述例外情況
 
+"""
+### 進階Prompt寫作技巧
+任務+限制+驗收標準
+"""
+# 請撰寫一個 normalizeQuery(input: string): string 函式
+# 限制：必須是純函式、O(n)、處理 Unicode 空白、保留語言區分（例如土耳其 i）
+# 驗收：提供 pytest 測試，涵蓋空字串、多重空白、特殊字元
+"""
+情境分層
+# 請擴充 UserService，新增 getActiveUsersByTier(tier: string)
+# 參考：src/services/UserService.ts 與 docs/style-guide.md
+# 限制：使用既有 Cache、符合 Telemetry 命名規範、避免 N+1 Query
+# 驗收：Lint 通過、提供單元測試
+"""
+批判與迭代
+# 請檢查 Copilot 產生的程式碼是否符合 docs/copilot-quality-checklist.md
+# 列出缺失並修正，僅顯示修改部分
 """
 
 ### 建立測試環境
@@ -35,3 +60,41 @@ pip install pytest black flake8
 black --check .
 flake8 .
 pytest -q
+
+### 初始化專案環境
+在 .github/workflows/*.yml 中加入以下內容：
+# Prompt: Initialize Project from CPS Template
+
+此 GitHub Actions workflow 會在 `main` 分支 push 或手動觸發時執行，目的是將 CPS 樣板專案內容初始化到目前的 repository。  
+主要步驟如下：
+
+1. **Checkout 專案原始碼**：取得目前 repository 的最新內容。
+2. **拉取 CPS 樣板**：從 `https://github.com/CVAS-Gary/CPS.git` 複製 CPS 樣板專案。
+3. **複製樣板檔案**：將 `PromptGallery`、`CONTRIBUTING.md` 及 PR 樣板複製到本專案。
+4. **提交變更**：自動 commit 並 push 樣板檔案到 repository。
+
+此流程可協助專案快速套用標準化的 CPS 樣板結構，確保專案初始內容一致，並方便後續協作與管理。
+
+### 建立新專案參考
+請幫我依照init-template.yml完整執行在demo資料夾下建立新專案CPS，並將template repo中的範例檔案複製到我的新專案。
+請幫我參照CPS專案自動複製".github\所有資料夾和檔案"、"PromptGallery\所有資料夾和檔案"、"CONTRIBUTING.md"、"README.md"、"requirements.txt"到demo資料夾下建立的新專案CPS。
+
+設定參考instructionsFilesLocations:
+@id:chat.instructionsFilesLocations 
+
+    """
+    接收 JSON 格式的整數列表，回傳排序後去重的結果。
+    輸入格式：
+        { "input_list": [整數, ...] }
+    回傳格式：
+        { "result": [整數, ...] }
+    例外：
+        若輸入格式錯誤，回傳 400 並附錯誤訊息。
+    """
+
+### Code-instructions
+GitHub Actions / YAML
+跨多個檔案
+refactor（怕改壞）
+公司有 coding rule
+你想「控制修改範圍」

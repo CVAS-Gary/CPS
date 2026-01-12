@@ -17,15 +17,17 @@ jobs:
       - name: Pull CPS template repo
         run: |
           git clone https://github.com/CVAS-Gary/CPS.git CPS
+          cp -r CPS/.github/ ./github || true
           cp -r CPS/PromptGallery ./PromptGallery || true
           cp CPS/CONTRIBUTING.md ./CONTRIBUTING.md || true
+          cp CPS/README.md ./README.md || true
+          cp CPS/requirements.txt ./requirements.txt || true
           mkdir -p .github
-          cp CPS/.github/pull_request_template.md .github/pull_request_template.md || true
 
       - name: Commit template files
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "CPS-Gary"
+          git config user.email "gary.tsai@cloudriches.com"
           git add .
           git commit -m "Initialize project with CPS template files" || echo "No changes to commit"
           git push

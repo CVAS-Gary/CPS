@@ -81,3 +81,7 @@ Basic agent vs Advanced agent vs Demo agent
 API sample
 - 提問：「建立一個 FastAPI endpoint，並檢查是否符合 API 命名規範」
 - Agent → 生成程式碼 + 自動檢查規範
+
+### 參考出處
+- GitHub Copilot Log
+- Copilot instructions

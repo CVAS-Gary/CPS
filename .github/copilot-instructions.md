@@ -13,6 +13,8 @@ File header rule (VERY IMPORTANT):
   - The FIRST line of the file MUST be exactly:
     # 由 GitHub Copilot 產生
   - This line MUST appear before any imports, code, shebangs, or docstrings.
+  - Please indicate whether Copilot Chat referenced any GitHub source(s) when generating this suggestion.
+  - If yes, list the repository URL(s) or file path(s) that were referenced.
 
 Naming conventions:
 - ALL variable names MUST be uppercase.

@@ -3,6 +3,11 @@
   "github.copilot.enable": true,
   "github.copilot.chat.references.enabled": true,
   "github.copilot.chat.customInstructionsInSystemMessage": true,
-  "github.copilot.chat.codeGeneration.useInstructionFiles": true
+  "github.copilot.chat.codeGeneration.useInstructionFiles": true,
+  "python.testing.pytestArgs": [
+    "Python"
+  ],
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestEnabled": true
 
 }

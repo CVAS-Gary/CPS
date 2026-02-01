@@ -2,64 +2,124 @@ import pytest
 from demo import normalizeQuery
 
 
-def test_normalizeQuery_empty():
-    """Test with empty string"""
-    assert normalizeQuery("") == ""
+def test_given_empty_string_when_normalize_then_return_empty():
+    # Given
+    INPUT = ""
+    # When
+    RESULT = normalizeQuery(INPUT)
+    # Then
+    assert RESULT == ""
 
 
-def test_normalizeQuery_only_spaces():
-    """Test with only whitespace"""
-    assert normalizeQuery("     ") == ""
-    assert normalizeQuery("\t\n\r") == ""
+def test_given_only_whitespace_when_normalize_then_return_empty():
+    # Given
+    INPUT1 = "     "
+    INPUT2 = "\t\n\r"
+    # When
+    RESULT1 = normalizeQuery(INPUT1)
+    RESULT2 = normalizeQuery(INPUT2)
+    # Then
+    assert RESULT1 == ""
+    assert RESULT2 == ""
 
 
-def test_normalizeQuery_leading_trailing_spaces():
-    """Test trimming leading and trailing spaces"""
-    assert normalizeQuery("   hello world   ") == "hello world"
-    assert normalizeQuery("\thello\n") == "hello"
+def test_given_leading_trailing_spaces_when_normalize_then_trimmed():
+    # Given
+    INPUT1 = "   hello world   "
+    INPUT2 = "\thello\n"
+    # When
+    RESULT1 = normalizeQuery(INPUT1)
+    RESULT2 = normalizeQuery(INPUT2)
+    # Then
+    assert RESULT1 == "hello world"
+    assert RESULT2 == "hello"
 
 
-def test_normalizeQuery_unicode_whitespace():
-    """Test Unicode whitespace characters"""
-    assert normalizeQuery("\u2003hello\u3000world\u2002") == "hello world"
-    assert normalizeQuery("a\u2003\u3000b") == "a b"
+def test_given_unicode_whitespace_when_normalize_then_collapsed():
+    # Given
+    INPUT1 = "\u2003hello\u3000world\u2002"
+    INPUT2 = "a\u2003\u3000b"
+    # When
+    RESULT1 = normalizeQuery(INPUT1)
+    RESULT2 = normalizeQuery(INPUT2)
+    # Then
+    assert RESULT1 == "hello world"
+    assert RESULT2 == "a b"
 
 
-def test_normalizeQuery_mixed_whitespace():
-    """Test mixed whitespace types"""
-    assert normalizeQuery("a\tb\nc\r\nd") == "a b c d"
-    assert normalizeQuery("a \t\n b") == "a b"
+def test_given_mixed_whitespace_when_normalize_then_collapsed():
+    # Given
+    INPUT1 = "a\tb\nc\r\nd"
+    INPUT2 = "a \t\n b"
+    # When
+    RESULT1 = normalizeQuery(INPUT1)
+    RESULT2 = normalizeQuery(INPUT2)
+    # Then
+    assert RESULT1 == "a b c d"
+    assert RESULT2 == "a b"
 
 
-def test_normalizeQuery_multiple_consecutive_whitespace():
-    """Test collapsing multiple spaces"""
-    assert normalizeQuery("a     b    c") == "a b c"
-    assert normalizeQuery("a\u2003\u2003b\u3000\u3000c") == "a b c"
+def test_given_multiple_consecutive_whitespace_when_normalize_then_collapsed():
+    # Given
+    INPUT1 = "a     b    c"
+    INPUT2 = "a\u2003\u2003b\u3000\u3000c"
+    # When
+    RESULT1 = normalizeQuery(INPUT1)
+    RESULT2 = normalizeQuery(INPUT2)
+    # Then
+    assert RESULT1 == "a b c"
+    assert RESULT2 == "a b c"
 
 
-def test_normalizeQuery_no_whitespace():
-    """Test string without whitespace"""
-    assert normalizeQuery("abc") == "abc"
-    assert normalizeQuery("hello") == "hello"
+def test_given_no_whitespace_when_normalize_then_unchanged():
+    # Given
+    INPUT1 = "abc"
+    INPUT2 = "hello"
+    # When
+    RESULT1 = normalizeQuery(INPUT1)
+    RESULT2 = normalizeQuery(INPUT2)
+    # Then
+    assert RESULT1 == "abc"
+    assert RESULT2 == "hello"
 
 
-def test_normalizeQuery_single_character():
-    """Test single character with spaces"""
-    assert normalizeQuery(" a ") == "a"
+def test_given_single_character_with_spaces_when_normalize_then_trimmed():
+    # Given
+    INPUT = " a "
+    # When
+    RESULT = normalizeQuery(INPUT)
+    # Then
+    assert RESULT == "a"
 
 
-def test_normalizeQuery_preserves_case():
-    """Test case preservation"""
-    assert normalizeQuery("Hello World") == "Hello World"
-    assert normalizeQuery("ABC xyz") == "ABC xyz"
+def test_given_case_sensitive_string_when_normalize_then_case_preserved():
+    # Given
+    INPUT1 = "Hello World"
+    INPUT2 = "ABC xyz"
+    # When
+    RESULT1 = normalizeQuery(INPUT1)
+    RESULT2 = normalizeQuery(INPUT2)
+    # Then
+    assert RESULT1 == "Hello World"
+    assert RESULT2 == "ABC xyz"
 
 
-def test_normalizeQuery_language_sensitive():
-    """Test language-specific characters are preserved"""
-    assert normalizeQuery("İstanbul") == "İstanbul"
-    assert normalizeQuery("i I ı İ") == "i I ı İ"
+def test_given_language_specific_characters_when_normalize_then_preserved():
+    # Given
+    INPUT1 = "İstanbul"
+    INPUT2 = "i I ı İ"
+    # When
+    RESULT1 = normalizeQuery(INPUT1)
+    RESULT2 = normalizeQuery(INPUT2)
+    # Then
+    assert RESULT1 == "İstanbul"
+    assert RESULT2 == "i I ı İ"
 
 
-def test_normalizeQuery_fullwidth_characters():
-    """Test fullwidth punctuation is preserved"""
-    assert normalizeQuery("  a ！ b　") == "a ！ b"
+def test_given_fullwidth_punctuation_when_normalize_then_preserved():
+    # Given
+    INPUT = "  a ！ b　"
+    # When
+    RESULT = normalizeQuery(INPUT)
+    # Then
+    assert RESULT == "a ！ b"

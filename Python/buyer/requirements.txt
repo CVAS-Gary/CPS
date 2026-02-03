@@ -1,4 +1,0 @@
-# 由 GitHub Copilot 產生
-# 本檔案未參考任何 GitHub 原始碼
-
-Flask

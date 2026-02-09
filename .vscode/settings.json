@@ -4,6 +4,8 @@
   "github.copilot.chat.references.enabled": true,
   "github.copilot.chat.customInstructionsInSystemMessage": true,
   "github.copilot.chat.codeGeneration.useInstructionFiles": true,
+  "github.copilot.enableChat": true,
+  "copilot.experimental.chat": "enabled",
   "python.testing.pytestArgs": [
     "Python"
   ],

@@ -87,4 +87,7 @@ API sample
 - Copilot instructions
 
 ### handoff agents
-- 請幫我規劃一個Python購物網站的實作計劃並撰件，並完成執行實作功能，完成後請執行 Agent handoff，並顯示 Start Implementation 讓我觸發實作給 Implementation Agent在demo資料夾下新增規劃中的文件或檔案，包含API、路由、測試與文件。
+- 請幫我規劃一個Python購物網站的實作計劃並撰寫文件
+- 執行 Agent handoff，並顯示 Start Implementation 讓我觸發實作
+- Implementation Agent在demo資料夾下實作所有規劃完成的文件或檔案
+- 包含API、路由、測試與文件。

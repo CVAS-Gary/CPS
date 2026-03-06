@@ -1,18 +1,27 @@
-import unicodedata
-import re
+111
+# 由 GitHub Copilot 產生
+# 參考來源: 無
+# filepath: d:\OneDrive\CloudRiches\Source Code\Python\demo.py
+# ...existing code...
+def fizz_buzz():
+    # 遍歷 1 到 100 的所有整數
+    for I in range(1, 101):
+        # 檢查是否同時能被 3 和 5 整除
+        if I % 3 == 0 and I % 5 == 0:
+            print("FizzBuzz")
+        # 檢查是否能被 3 整除
+        elif I % 3 == 0:
+            print("Fizz")
+        # 檢查是否能被 5 整除
+        elif I % 5 == 0:
+            print("Buzz")
+        # 其他情況直接輸出數字
+        else:
+            print(I)
 
-def normalizeQuery(input: str) -> str:
-    """
-    將輸入字串進行標準化：
-    - 移除前後的所有 Unicode 空白字元
-    - 將所有連續空白（Unicode 空白）合併為一個半形空白
-    - 保留語言區分（不做大小寫轉換、不做 Unicode 正規化）
-    - O(n) 時間複雜度
-    """
-    # 使用正則表達式處理所有 Unicode 空白
-    # \s 包含所有 Unicode 空白
-    # 先去除前後空白
-    trimmed = re.sub(r'^\s+|\s+$', '', input)
-    # 再將中間所有連續空白合併為一個半形空白
-    normalized = re.sub(r'\s+', ' ', trimmed)
-    return normalized
+
+# ...existing code...
+if __name__ == "__main__":
+    fizz_buzz()
+# ...existing code...
+222

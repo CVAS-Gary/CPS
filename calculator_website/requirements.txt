@@ -1,0 +1,2 @@
+# 由 GitHub Copilot 產生
+Flask==2.2.3

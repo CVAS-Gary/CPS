@@ -1,12 +1,28 @@
-function fizzBuzz() {
-    for (let i = 1; i <= 100; i++) {
-        if (i % 3 === 0 && i % 5 === 0) {
-            console.log("FizzBuzz");
-        } else if (i % 3 === 0) {
-            console.log("Fizz");
-        } else if (i % 5 === 0) {
-            console.log("Buzz");
-        } else {
-            console.log(i);
-        }
-    }
+# 由 GitHub Copilot 產生
+# 未參考任何 GitHub 原始碼
+
+def add(A, B):
+    return A + B
+
+def subtract(A, B):
+    return A - B
+
+def multiply(A, B):
+    return A * B
+
+def divide(A, B):
+    # 檢查除數是否為零
+    if B == 0:
+        raise ValueError("無法除以零")
+    return A / B
+
+def main():
+    X = 10
+    Y = 5
+    print("加法:", add(X, Y))
+    print("減法:", subtract(X, Y))
+    print("乘法:", multiply(X, Y))
+    print("除法:", divide(X, Y))
+
+if __name__ == "__main__":
+    main()

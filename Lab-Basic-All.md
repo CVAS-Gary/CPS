@@ -9,6 +9,7 @@
 ---問完之後我們就可以透過引用提示將code引用進去
 
 ### 重新命名符號：程式人員最討厭的就是變數命名，我們就可以透過Copilot建議
+---下Prompt，請撰寫兩數相加減乘除四個不同的函式，能夠回傳運算的結果。
 ---按右鍵點重新命名
 ---前面這個符號就是AI建議的，選項可以判斷AI是不是知道你的意圖
 ---如果都不是很滿意；就可以再按一下符號產生更多建議
@@ -80,3 +81,13 @@ Basic agent vs Advanced agent vs Demo agent
 API sample
 - 提問：「建立一個 FastAPI endpoint，並檢查是否符合 API 命名規範」
 - Agent → 生成程式碼 + 自動檢查規範
+
+### 參考出處
+- GitHub Copilot Log
+- Copilot instructions
+
+### handoff agents
+- 請幫我規劃一個Python購物網站的實作計劃並撰寫文件
+- 執行 Agent handoff，並顯示 Start Implementation 讓我觸發實作
+- Implementation Agent在demo資料夾下實作所有規劃完成的文件或檔案
+- 包含API、路由、測試與文件。

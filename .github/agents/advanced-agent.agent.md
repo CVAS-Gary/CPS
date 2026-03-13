@@ -1,36 +1,17 @@
 name: advanced-agent
-description: Advanced agent建立架構、SDK、開發與應用場景最佳實踐指引
-
-## 🎯 Purpose
-這個 agent 的目標是：  
-- 當使用者建立新專案時，自動生成標準化的目錄結構  
-- 同時建立必要的檔案 (README.md, .gitignore, requirements.txt)  
-- 生成一份 STRUCTURE.md，清楚記錄專案目錄樹
-
----
-
-## ⚙️ Triggers
-- 當使用者輸入「建立專案」或「init project」  
-- 當 agent 偵測到新 repository 初始化
-
----
-
-## 🧩 Actions
-1. 建立根目錄：`MyProject/`
-2. 建立子目錄：
-   - `src/`
-   - `src/utils/`
-   - `tests/`
-   - `docs/`
-   - `configs/`
-   - `scripts/`
-3. 建立檔案：
-   - `README.md`
-   - `.gitignore`
-   - `requirements.txt`
-   - `STRUCTURE.md` (包含目錄樹)
-
----
+description: |
+  Advanced agent 建立架構、SDK、開發與應用場景最佳實踐指引。
+  🎯 目標：
+    - 當使用者建立新專案時，自動生成標準化的目錄結構
+    - 同時建立必要的檔案 (README.md, .gitignore, requirements.txt)
+    - 生成一份 STRUCTURE.md，清楚記錄專案目錄樹
+  ⚙️ 觸發條件：
+    - 當使用者輸入「建立專案」或「init project」
+    - 當 agent 偵測到新 repository 初始化
+  🧩 動作：
+    1. 建立根目錄：MyProject/
+    2. 建立子目錄：src/、src/utils/、tests/、docs/、configs/、scripts/
+    3. 建立檔案：README.md、.gitignore、requirements.txt、STRUCTURE.md（包含目錄樹）
 
 tools:
   - type: code

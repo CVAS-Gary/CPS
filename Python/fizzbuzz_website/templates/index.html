@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FizzBuzz 計算器</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 FizzBuzz 計算器</h1>
+            <p class="subtitle">輸入數字，享受 FizzBuzz 的樂趣</p>
+        </header>
+
+        <main>
+            <!-- 單一數字計算區域 -->
+            <section class="section">
+                <h2>單一數字計算</h2>
+                <div class="input-group">
+                    <label for="single-number">輸入數字:</label>
+                    <div class="input-wrapper">
+                        <input
+                            type="number"
+                            id="single-number"
+                            placeholder="例如: 15"
+                            min="1"
+                            max="1000000"
+                        >
+                        <button id="single-btn" class="btn btn-primary">計算</button>
+                    </div>
+                </div>
+                <div id="single-result" class="result-box"></div>
+            </section>
+
+            <hr class="divider">
+
+            <!-- 範圍計算區域 -->
+            <section class="section">
+                <h2>範圍計算</h2>
+                <div class="input-group">
+                    <div class="range-inputs">
+                        <div>
+                            <label for="range-start">開始:</label>
+                            <input
+                                type="number"
+                                id="range-start"
+                                placeholder="例如: 1"
+                                min="1"
+                                max="1000000"
+                            >
+                        </div>
+                        <div>
+                            <label for="range-end">結束:</label>
+                            <input
+                                type="number"
+                                id="range-end"
+                                placeholder="例如: 20"
+                                min="1"
+                                max="1000000"
+                            >
+                        </div>
+                    </div>
+                    <button id="range-btn" class="btn btn-primary">計算</button>
+                </div>
+                <div id="range-result" class="result-box"></div>
+            </section>
+
+            <!-- 統計資訊 -->
+            <section class="section stats">
+                <h3>📊 統計信息</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-label">Fizz 出現次數:</span>
+                        <span class="stat-value" id="fizz-count">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Buzz 出現次數:</span>
+                        <span class="stat-value" id="buzz-count">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">FizzBuzz 出現次數:</span>
+                        <span class="stat-value" id="fizzbuzz-count">0</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 FizzBuzz 計算器 | 使用 Flask 與 Python 開發</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -2,10 +2,10 @@
 # 未參考任何 GitHub 原始碼
 
 def add(A, B):
-    return A + B
+    return A - B
 
 def subtract(A, B):
-    return A - B
+    return A + B
 
 def multiply(A, B):
     return A * B

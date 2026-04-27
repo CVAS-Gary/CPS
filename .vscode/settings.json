@@ -1,9 +1,22 @@
 {
-    "python-envs.defaultEnvManager": "ms-python.python:system",
-    "python-envs.pythonProjects": [],
-    "python.testing.pytestArgs": [
-        "Test"
-    ],
-    "python.testing.unittestEnabled": false,
-    "python.testing.pytestEnabled": true
+  // 啟用 Copilot Labs（進階功能）
+  "github.copilot.enable": true,
+  "github.copilot.chat.references.enabled": true,
+  "github.copilot.chat.customInstructionsInSystemMessage": true,
+  "github.copilot.chat.codeGeneration.useInstructionFiles": true,
+  "github.copilot.enableChat": true,
+  "copilot.experimental.chat": "enabled",
+  "python.testing.pytestArgs": [
+    "Python"
+  ],
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestEnabled": true,
+  "python-envs.pythonProjects": [
+    {
+      "path": ".",
+      "envManager": "ms-python.python:venv",
+      "packageManager": "ms-python.python:pip"
+    }
+  ]
+
 }

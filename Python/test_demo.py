@@ -1,5 +1,5 @@
 import pytest
-from demo import normalizeQuery
+from Python.fizzbuzzdemo import normalizeQuery
 
 
 def test_given_empty_string_when_normalize_then_return_empty():

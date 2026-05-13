@@ -91,3 +91,12 @@ API sample
 - 執行 Agent handoff，並顯示 Start Implementation 讓我觸發實作
 - Implementation Agent在demo資料夾下實作所有規劃完成的文件或檔案
 - 包含API、路由、測試與文件。
+
+### 三輪迭代
+- create a login API using flask
+- review code and check security compliance
+- refactor code to reduce nested structure
+- create a secure login API using flask
+- use parameterized queries
+- hash password using bcrypt
+- prevent SQL injection

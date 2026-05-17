@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"github.copilot.enable": true,
+		"github.copilot.chat.customInstructionsInSystemMessage": true,
+		"github.copilot.chat.codeGeneration.useInstructionFiles": true
+	}
+}

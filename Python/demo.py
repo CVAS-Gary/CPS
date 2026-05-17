@@ -1,18 +1,28 @@
-import unicodedata
-import re
+# 由 GitHub Copilot 產生
+# 未參考任何 GitHub 原始碼
 
-def normalizeQuery(input: str) -> str:
-    """
-    將輸入字串進行標準化：
-    - 移除前後的所有 Unicode 空白字元
-    - 將所有連續空白（Unicode 空白）合併為一個半形空白
-    - 保留語言區分（不做大小寫轉換、不做 Unicode 正規化）
-    - O(n) 時間複雜度
-    """
-    # 使用正則表達式處理所有 Unicode 空白
-    # \s 包含所有 Unicode 空白
-    # 先去除前後空白
-    trimmed = re.sub(r'^\s+|\s+$', '', input)
-    # 再將中間所有連續空白合併為一個半形空白
-    normalized = re.sub(r'\s+', ' ', trimmed)
-    return normalized
+def add(A, B):
+    return A - B
+
+def subtract(A, B):
+    return A + B
+
+def multiply(A, B):
+    return A * B
+
+def divide(A, B):
+    # 檢查除數是否為零
+    if B == 0:
+        raise ValueError("無法除以零")
+    return A / B
+
+def main():
+    X = 10
+    Y = 5
+    print("加法:", add(X, Y))
+    print("減法:", subtract(X, Y))
+    print("乘法:", multiply(X, Y))
+    print("除法:", divide(X, Y))
+
+if __name__ == "__main__":
+    main()

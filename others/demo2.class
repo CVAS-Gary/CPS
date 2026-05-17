@@ -1,0 +1,242 @@
+import java.awt.*;
+import java.awt.event.*;
+import java.util.*;
+import java.io.*;
+import javax.swing.*;
+
+public class OldJava2Demo extends JFrame {
+    private Vector itemList;
+    private JList list;
+    private DefaultListModel listModel;
+    private JTextField inputField;
+    private JButton addButton;
+    private JButton removeButton;
+    private JButton clearButton;
+    private JButton searchButton;
+    private JButton copyButton;
+    private JButton sortButton;
+    private JButton reverseButton;
+    private JButton exportButton;
+    private JButton randomButton;
+    private JLabel statusLabel;
+    private JLabel countLabel;
+    private JTextField searchField;
+
+    public OldJava2Demo() {
+        super("Java2 Legacy Syntax Demo");
+        itemList = new Vector();
+        listModel = new DefaultListModel();
+
+        list = new JList(listModel);
+        inputField = new JTextField(20);
+        addButton = new JButton("Add");
+        removeButton = new JButton("Remove Selected");
+        clearButton = new JButton("Clear");
+        searchButton = new JButton("Search");
+        copyButton = new JButton("Copy Selected");
+        sortButton = new JButton("Sort");
+        reverseButton = new JButton("Reverse");
+        exportButton = new JButton("Export List");
+        randomButton = new JButton("Pick Random");
+        statusLabel = new JLabel("Status: Ready");
+        countLabel = new JLabel("Total Items: 0");
+        searchField = new JTextField(15);
+
+        JPanel inputPanel = new JPanel();
+        inputPanel.add(inputField);
+        inputPanel.add(addButton);
+
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.add(removeButton);
+        buttonPanel.add(clearButton);
+        buttonPanel.add(copyButton);
+        buttonPanel.add(sortButton);
+        buttonPanel.add(reverseButton);
+        buttonPanel.add(exportButton);
+        buttonPanel.add(randomButton);
+
+        JPanel searchPanel = new JPanel();
+        searchPanel.add(new JLabel("Search:"));
+        searchPanel.add(searchField);
+        searchPanel.add(searchButton);
+
+        JScrollPane scrollPane = new JScrollPane(list);
+
+        Container contentPane = getContentPane();
+        contentPane.setLayout(new BorderLayout());
+        contentPane.add(inputPanel, BorderLayout.NORTH);
+        contentPane.add(scrollPane, BorderLayout.CENTER);
+        contentPane.add(buttonPanel, BorderLayout.SOUTH);
+        contentPane.add(statusLabel, BorderLayout.PAGE_END);
+        contentPane.add(searchPanel, BorderLayout.WEST);
+        contentPane.add(countLabel, BorderLayout.EAST);
+
+        addButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String text = inputField.getText();
+                if (text.length() > 0) {
+                    itemList.addElement(text);
+                    listModel.addElement(text);
+                    inputField.setText("");
+                    statusLabel.setText("Status: Added " + text);
+                    updateCount();
+                }
+            }
+        });
+
+        removeButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                int index = list.getSelectedIndex();
+                if (index >= 0) {
+                    String removed = (String) listModel.getElementAt(index);
+                    listModel.remove(index);
+                    itemList.removeElement(removed);
+                    statusLabel.setText("Status: Removed " + removed);
+                    updateCount();
+                }
+            }
+        });
+
+        clearButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                listModel.clear();
+                itemList.removeAllElements();
+                statusLabel.setText("Status: Cleared");
+                updateCount();
+            }
+        });
+
+        copyButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                int index = list.getSelectedIndex();
+                if (index >= 0) {
+                    String selected = (String) listModel.getElementAt(index);
+                    StringSelection stringSelection = new StringSelection(selected);
+                    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
+                    statusLabel.setText("Status: Copied \"" + selected + "\" to clipboard");
+                }
+            }
+        });
+
+        sortButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                Vector sorted = (Vector) itemList.clone();
+                Collections.sort(sorted);
+                listModel.clear();
+                for (int i = 0; i < sorted.size(); i++) {
+                    listModel.addElement(sorted.elementAt(i));
+                }
+                statusLabel.setText("Status: Sorted in ascending order");
+            }
+        });
+
+        reverseButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                Vector reversed = (Vector) itemList.clone();
+                Collections.sort(reversed, Collections.reverseOrder());
+                listModel.clear();
+                for (int i = 0; i < reversed.size(); i++) {
+                    listModel.addElement(reversed.elementAt(i));
+                }
+                statusLabel.setText("Status: Sorted in descending order");
+            }
+        });
+
+        exportButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    FileWriter fw = new FileWriter("item_list.txt");
+                    Enumeration en = itemList.elements();
+                    while (en.hasMoreElements()) {
+                        fw.write(en.nextElement().toString() + "\n");
+                    }
+                    fw.close();
+                    statusLabel.setText("Status: Exported to item_list.txt");
+                } catch (IOException ex) {
+                    statusLabel.setText("Status: Export failed");
+                }
+            }
+        });
+
+        randomButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (itemList.size() > 0) {
+                    Random rand = new Random();
+                    int idx = rand.nextInt(itemList.size());
+                    String picked = (String) itemList.elementAt(idx);
+                    statusLabel.setText("Status: Randomly picked \"" + picked + "\"");
+                    list.setSelectedValue(picked, true);
+                }
+            }
+        });
+
+        searchButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String keyword = searchField.getText();
+                if (keyword.length() > 0) {
+                    Vector found = new Vector();
+                    Enumeration en = itemList.elements();
+                    while (en.hasMoreElements()) {
+                        String item = (String) en.nextElement();
+                        if (item.indexOf(keyword) >= 0) {
+                            found.addElement(item);
+                        }
+                    }
+                    listModel.clear();
+                    for (int i = 0; i < found.size(); i++) {
+                        listModel.addElement(found.elementAt(i));
+                    }
+                    statusLabel.setText("Status: Found " + found.size() + " items with \"" + keyword + "\"");
+                }
+            }
+        });
+
+        searchField.addKeyListener(new KeyAdapter() {
+            public void keyReleased(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    searchButton.doClick();
+                }
+            }
+        });
+
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                System.exit(0);
+            }
+        });
+
+        setSize(800, 500);
+        setVisible(true);
+    }
+
+    public void printAllItems() {
+        Enumeration en = itemList.elements();
+        System.out.println("All items:");
+        while (en.hasMoreElements()) {
+            System.out.println(en.nextElement());
+        }
+    }
+
+    private void updateCount() {
+        countLabel.setText("Total Items: " + itemList.size());
+    }
+
+    public static void main(String[] args) {
+        OldJava2Demo demo = new OldJava2Demo();
+        demo.printAllItems();
+    }
+}
+
+class OldHelper {
+    public static Vector getInitialVector() {
+        Vector v = new Vector();
+        v.addElement("Apple");
+        v.addElement("Compaq");
+        v.addElement("IBM");
+        return v;
+    }
+
+    public synchronized void doSomething() {
+        System.out.println("Executing synchronized method");
+    }
+}

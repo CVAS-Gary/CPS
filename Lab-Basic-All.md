@@ -1,4 +1,21 @@
-### 介紹Agent / Slash / Hash command
+# 基本功能
+## Agent Command
+## Slash command
+## Hash command
+
+## 快速鍵
+```
+Ctrl+I / Alt+/：inline Chat
+Alt+[ / Alt+,：上一個建議
+Alt+] / Alt+.：下一個建議
+Tab：接受建議
+Ctrl+Enter：Suggestions Panel (僅 Vs Code 有)
+```
+
+## 程式碼參考
+function fizzBuzz()
+幫我完成這個 JS 方法
+
 ### 介紹Model視窗、Copilot Usage視窗，Premium request
 ---額度不夠的話就要另外付費
 ---Bing search演示 python版本 & WBC (以前會說這個根開發無關)
@@ -40,6 +57,10 @@ PS：所以這邊還是要重申一下我們平常基本功還是要有，一些
 Csharp類別會蠻常用到，接Json格式用強行別來接就會用到
 有一段CSharp的語法；就可以直接轉成LinQ的語法
 
+# 取得todolist資料，網址是 https://jsonplaceholder.typicode.com/todos/1
+# 使用requests取得資料，並將資料轉換成JSON格式
+# 取得資料log出來
+
 ### 程式語法的傳換，給Copilot一段CSharp程式碼
 讓他幫我從C#轉乘Python程式碼
 當然這是比較簡單的範例；轉起來就比較容易成功
@@ -78,10 +99,6 @@ Basic agent vs Advanced agent vs Demo agent
 - knowledge：掛載多個文件，涵蓋 API、DevOps pipeline、公司安全規範。
 - policies：定義合規性檢查，讓 Agent 在生成 IaC 或 API 範例時自動提醒安全規範。
 
-API sample
-- 提問：「建立一個 FastAPI endpoint，並檢查是否符合 API 命名規範」
-- Agent → 生成程式碼 + 自動檢查規範
-
 ### 參考出處
 - GitHub Copilot Log
 - Copilot instructions
@@ -100,3 +117,7 @@ API sample
 - use parameterized queries
 - hash password using bcrypt
 - prevent SQL injection
+
+# SQL Injection
+username_input = "admin"
+password_input = "' OR '1'='1"

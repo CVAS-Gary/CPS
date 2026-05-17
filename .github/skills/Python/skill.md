@@ -40,6 +40,34 @@ When generating or reviewing Python code, enforce the following:
    - Use 4 spaces for indentation
    - Limit lines to 79 characters
    - Use blank lines to separate functions and classes
+
+## Security review rules
+When generating or reviewing Python code, also check for security issues:
+
+1. **SQL Injection**
+   - Never construct SQL statements using string concatenation,
+     f-strings, or `%` formatting with user input.
+   - Always use parameterized queries.
+
+2. **Command Injection**
+   - Do not pass unsanitized user input to subprocess or os.system.
+
+3. **Hardcoded secrets**
+   - Do not hardcode passwords, API keys, or tokens.
+
+4. **Input validation**
+   - Validate and sanitize all user-controlled input.
+
+5. **Sensitive data exposure**
+   - Avoid logging passwords or confidential information.
+
+6. **Authentication**
+   - Never store passwords in plaintext.
+   - Use secure password hashing such as bcrypt.
+
+7. **Dependency security**
+   - Prefer maintained libraries and avoid deprecated packages.
+
 ## Code review behavior
 When reviewing Python code:
 - Point out violations of company coding standards

@@ -1,34 +1,17 @@
 ### 介紹Agent / Slash / Hash command
 ### 介紹Model視窗、Copilot Usage視窗，Premium request
----額度不夠的話就要另外付費
----Bing search演示 python版本 & WBC (以前會說這個根開發無關)
----Agent可以幫你把整體每一個階段的修改工作完善
----Ask 一般下prompt跟Service對話就是這一個服務
----Edit通常是多檔案編輯處理
----Code reference 這段Code是否有參照到Github
----問完之後我們就可以透過引用提示將code引用進去
-
-### 重新命名符號：程式人員最討厭的就是變數命名，我們就可以透過Copilot建議
----下Prompt，請撰寫兩數相加減乘除四個不同的函式，能夠回傳運算的結果。
----按右鍵點重新命名
----前面這個符號就是AI建議的，選項可以判斷AI是不是知道你的意圖
----如果都不是很滿意；就可以再按一下符號產生更多建議
-
-### 另外一種命名方式是，當我今天變數一樣是aaa
----反白變數AI辨識意圖後就會看到變成bmi，因為這支程式是來計算BMI
----透過這兩個Demo來辨識開發者的意圖跟上下文的判斷
-
+### 重新命名符號：程式人員最討厭的就是變數命名
 ### 切入AI進行中間作業
 在程式碼選擇或游標處按Ctrl+I就可以直接Inline (打/doc寫註解)
 Copilot就會透過上下文理解Code以後寫註解
 
 ### 再來就是我們故意把錯誤的Code寫進去
-Add Sample Code貼上去，輸入/fix或chat幫我修正這一段程式(Add把-改成+)
-PS：所以這邊還是要重申一下我們平常基本功還是要有，一些基本函示或變數在命名時，還是要養成良好的習慣，
-    讓AI對你更容易上手，幫你做出正確的事和進行正確的判斷
-    EX：明明是加法寫減法，或是行為命名不明確，就算AI想幫你也沒辦法
+/fix 就會幫我們修正程式碼裡面的錯誤，幫我們提升程式碼的品質。
+/review 就會幫我們檢查程式碼裡面的問題，並且幫我們修正程式碼裡面的缺陷，這樣就可以幫助我們提升程式碼的品質。
+/refactor 就會幫我們重構程式碼的結構，幫我們提升程式碼的可讀性，維護性，還有可擴充性。
 
 ### 解釋程式碼
+/explain 就會幫我們解釋程式碼的邏輯，幫助我們理解程式碼的邏輯，這樣就可以幫助我們提升程式碼的可讀性。
 /tests 寫測試程式，如果完全不會寫測試程式的時候就可以用這種方式幫妳寫
 /Plan 或是開發人員都很懶得寫文件，就可以透過Copilot來幫我們產專案文件
     EX：(點選BMI程式) 幫我為這一支計算BMI程式撰寫專案文件
@@ -40,15 +23,11 @@ PS：所以這邊還是要重申一下我們平常基本功還是要有，一些
 Csharp類別會蠻常用到，接Json格式用強行別來接就會用到
 有一段CSharp的語法；就可以直接轉成LinQ的語法
 
-### 程式語法的傳換，給Copilot一段CSharp程式碼
+### 程式語法的傳換，給Copilot一段CSharp程式碼改成Python程式碼
 讓他幫我從C#轉乘Python程式碼
 當然這是比較簡單的範例；轉起來就比較容易成功
 但比較複雜的向參照一些特定的Library也是會幫你找，但結果可能沒有那麼完美
 所以如果Code比較複雜；我們可能就會去思考是不是有定義不容易讓AI理解的地方
-
-### 直接打Code review就會幫你檢查程式碼有那些問題，
-用一樣的方式幫你解決程式碼裡面的缺陷
-全選程式碼後按右鍵，可以看到產生程式碼中，一樣可以選擇fix、review
 
 ### 最後一段是我們俗稱的香腸式結構；如果有打電動的人比較常聽到波動拳結構
 就是下了一堆判斷式讓程式碼很難閱讀，而且Code寫得很冗長只為了一件事情
@@ -86,11 +65,9 @@ API sample
 - GitHub Copilot Log
 - Copilot instructions
 
-### handoff agents
-- 請幫我規劃一個Python購物網站的實作計劃並撰寫文件
-- 執行 Agent handoff，並顯示 Start Implementation 讓我觸發實作
-- Implementation Agent在demo資料夾下實作所有規劃完成的文件或檔案
-- 包含API、路由、測試與文件。
+### Cloud Agent Lab
+請幫我部署一個C#計算ＢＭＩ網站
+Complete the task as described in the summary
 
 ### 三輪迭代
 - create a login API using flask
@@ -100,3 +77,6 @@ API sample
 - use parameterized queries
 - hash password using bcrypt
 - prevent SQL injection
+
+### Agent 協作
+請新增 add(a, b) 函式，建立單元測試，執行安全掃描，並產出最終報告。

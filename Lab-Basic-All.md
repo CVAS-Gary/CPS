@@ -52,7 +52,11 @@ Basic agent vs Advanced agent vs Demo agent
 - 「幫我寫一個 Python Flask REST API 範例」
 - 「我們的 CI/CD pipeline YAML 怎麼寫？」
 
-### Advanced agent會多一些安全規範的檢查
+# 取得todolist資料，網址是 https://jsonplaceholder.typicode.com/todos/1
+# 使用requests取得資料，並將資料轉換成JSON格式
+# 取得資料log出來
+
+### Custom agent會多一些安全規範的檢查
 - tools：除了程式碼與文件，還加入 web 與 api，可呼叫外部 API (例如安全檢查服務)。
 - knowledge：掛載多個文件，涵蓋 API、DevOps pipeline、公司安全規範。
 - policies：定義合規性檢查，讓 Agent 在生成 IaC 或 API 範例時自動提醒安全規範。
@@ -70,13 +74,57 @@ API sample
 Complete the task as described in the summary
 
 ### 三輪迭代
-- create a login API using flask
-- review code and check security compliance
-- refactor code to reduce nested structure
-- create a secure login API using flask
-- use parameterized queries
-- hash password using bcrypt
-- prevent SQL injection
+### 第一輪
+# Create a Python Flask login API using SQLite.
+
+# Requirements:
+# - Create a POST endpoint /login
+# - Accept username and password from JSON body
+# - Query the users table to verify credentials
+# - Return "Login successful" if user exists, otherwise return "Invalid credentials"
+
+# Important:
+# - Build the SQL query by directly concatenating the username and password into the SQL string.
+# - Do not use parameterized queries.
+# - Keep the code simple for demonstration purposes.
+
+# 第二輪
+# - review code and check security compliance
+# - refactor code to reduce nested structure
+
+# 第三輪
+# - create a secure login API using flask
+# - use parameterized queries
+# - hash password using bcrypt
+
+if __name__ == '__main__':
+    init_db()
+    app.run(host='127.0.0.1', port=5000, debug=True)
+
+source "/Users/cps-gary/Library/CloudStorage/OneDrive-個人/CloudRiches/Source Code/.venv/bin/activate"
+
+cd "/Users/cps-gary/Library/CloudStorage/OneDrive-個人/CloudRiches/Source Code/Python" && python3 -m pip install Flask && python3 test-demo.py
+
+# 情境 Demo
+# 正常登入
+curl -X POST http://127.0.0.1:5000/login \
+-H "Content-Type: application/json" \
+-d "{\"username\":\"admin\",\"password\":\"Password123\"}"
+# 錯誤登入
+curl -X POST http://127.0.0.1:5000/login \
+-H "Content-Type: application/json" \
+-d "{\"username\":\"admin\",\"password\":\"wrong\"}"
+# 攻擊登入
+curl -X POST http://127.0.0.1:5000/login \
+-H "Content-Type: application/json" \
+-d "{\"username\":\"admin\",\"password\":\"' OR '1'='1\"}"
+# 實際生成
+SELECT * FROM users
+WHERE username = 'admin'
+AND password = '' OR '1'='1'
+
+### GitHub CLI 背景工作階段
+在 Csharp 新增可部署的 BMI 計算 C# 網站
 
 ### Agent 協作
 請新增 add(a, b) 函式，建立單元測試，執行安全掃描，並產出最終報告。

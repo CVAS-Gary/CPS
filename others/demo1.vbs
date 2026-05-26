@@ -9,6 +9,22 @@ Private Sub Form_Load()
     Option1.Caption = "男"
     Option2.Caption = "女"
     Combo1.Clear
+        for INDEX in range(TOTAL):
+        ITEM_TEXT = STUDENT_LISTBOX.get(INDEX)
+        PARTS = [PART.strip() for PART in ITEM_TEXT.split("|")]
+        if len(PARTS) >= 3:
+            GENDER = PARTS[2]
+            if GENDER == "男":
+                BOY_COUNT += 1
+            elif GENDER == "女":
+                GIRL_COUNT += 1
+    
+    RESULT = (
+        f"目前學生總數：{TOTAL}\n"
+        f"男生：{BOY_COUNT} 人\n"
+        f"女生：{GIRL_COUNT} 人"
+    )
+    messagebox.showinfo("統計", RESULT)
     Combo1.AddItem "A班"
     Combo1.AddItem "B班"
     Combo1.AddItem "C班"

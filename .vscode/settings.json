@@ -11,12 +11,9 @@
   ],
   "python.testing.unittestEnabled": false,
   "python.testing.pytestEnabled": true,
-  "python-envs.pythonProjects": [
-    {
-      "path": ".",
-      "envManager": "ms-python.python:venv",
-      "packageManager": "ms-python.python:pip"
-    }
-  ]
-
+  // Token spent optimization settings
+  "chat.tools.compressOutput.enabled": true,
+  "github.copilot.chat.agent.backgroundTodoAgent.enabled": true,
+  "responsesApi.toolSearchTool.enabled": true,
+  "github.copilot.chat.anthropic.cacheBreakpoints.lastTwoMessages": true
 }

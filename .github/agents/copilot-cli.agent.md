@@ -16,9 +16,3 @@ instructions: |
     2. Then provide three iterations of the implementation.
     3. Conclude with a recommendation of which iteration is most suitable for beginners.
 ---
-
-# Demo Agent
-
-This agent enforces test-first development and iterative improvement.
-Use it with:
-?? [demo-agent] 建立一個 Python script，能計算檔案的行數

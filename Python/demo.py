@@ -1,8 +1,8 @@
 # 由 GitHub Copilot 產生
 # 未參考任何 GitHub 原始碼
 
-def add(A, B):
-    return A + B
+def add(a, b):
+    return a + b
 
 def subtract(A, B):
     return A - B

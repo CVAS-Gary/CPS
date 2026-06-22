@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "container:../CloudStorage/OneDrive-&#x500b;&#x4eba;/CloudRiches/Source Code">
+      location = "container:">
    </FileRef>
 </Workspace>
